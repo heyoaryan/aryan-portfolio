@@ -45,9 +45,8 @@ const ServicePopup: React.FC<ServicePopupProps> = ({ isOpen, onClose, onNavigate
 
   return (
     <div 
-      className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-hidden"
       onClick={handleBackdropClick}
-      style={{ padding: '16px' }}
     >
       {/* Floating particles - hidden on mobile for better performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
@@ -66,11 +65,12 @@ const ServicePopup: React.FC<ServicePopupProps> = ({ isOpen, onClose, onNavigate
       </div>
 
       <div 
-        className={`bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl w-full max-w-sm mx-auto transform transition-all duration-700 border border-slate-700/50 shadow-2xl relative overflow-hidden ${
+        className={`bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl transform transition-all duration-700 border border-slate-700/50 shadow-2xl relative overflow-hidden ${
           isVisible ? 'scale-100 opacity-100 translate-y-0 rotate-0' : 'scale-75 opacity-0 translate-y-8 rotate-3'
         }`}
         style={{
-          minHeight: 'auto',
+          width: '100%',
+          maxWidth: '400px',
           maxHeight: 'calc(100vh - 32px)',
           margin: '0 auto'
         }}
