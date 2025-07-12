@@ -193,13 +193,6 @@ const Hero: React.FC = () => {
               )}
               
               <div className={`absolute inset-0 bg-gradient-to-r ${href === '#services' ? 'from-purple-400/30 to-pink-400/30' : 'from-blue-400/20 to-purple-400/20'} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              
-              {href === '#services' && (
-                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg animate-bounce">
-                  My Services
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rotate-45"></div>
-                </div>
-              )}
             </a>
           ))}
         </div>
