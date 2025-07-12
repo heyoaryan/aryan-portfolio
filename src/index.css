@@ -197,6 +197,35 @@
   animation: morph 8s ease-in-out infinite;
 }
 
+/* Service icon special animations */
+@keyframes service-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 60px rgba(236, 72, 153, 0.4);
+  }
+}
+
+@keyframes service-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-service-glow {
+  animation: service-glow 2s ease-in-out infinite;
+}
+
+.animate-service-pulse {
+  animation: service-pulse 1.5s ease-in-out infinite;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

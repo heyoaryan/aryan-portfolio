@@ -160,7 +160,7 @@ const Hero: React.FC = () => {
             { icon: Github, href: 'https://github.com/heyoaryan', color: 'hover:bg-gray-700' },
             { icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-singh-thakur-12a422281/', color: 'hover:bg-blue-600' },
             { icon: Mail, href: 'mailto:iamaryan721@gmail.com', color: 'hover:bg-red-600' },
-            { icon: Briefcase, href: '#services', color: 'hover:bg-purple-600', isService: true, label: 'My Services' }
+            { icon: Briefcase, href: '#services', color: 'hover:bg-purple-600', isService: true, label: 'My Services', isSpecial: true }
           ].map(({ icon: Icon, href, color }, index) => (
             <a
               key={index}
@@ -171,15 +171,33 @@ const Hero: React.FC = () => {
                 const event = new CustomEvent('showServicePopup');
                 window.dispatchEvent(event);
               } : undefined}
-              className={`group relative p-3 sm:p-4 bg-slate-800/50 backdrop-blur-sm rounded-full ${color} transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-fade-in-up ${href === '#services' ? 'ring-2 ring-purple-400/30 animate-pulse' : ''}`}
+              className={`group relative p-3 sm:p-4 backdrop-blur-sm rounded-full transition-all duration-500 hover:scale-125 hover:shadow-2xl animate-fade-in-up ${
+                href === '#services' 
+                  ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 ring-2 ring-purple-400/50 animate-bounce hover:from-purple-500/40 hover:to-pink-500/40 hover:ring-purple-300 hover:shadow-purple-500/50' 
+                  : `bg-slate-800/50 ${color}`
+              }`}
               style={{ animationDelay: `${0.7 + index * 0.1}s` }}
               title={href === '#services' ? 'View My Services' : ''}
             >
-              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-              <div className={`absolute inset-0 bg-gradient-to-r ${href === '#services' ? 'from-purple-400/20 to-pink-400/20' : 'from-blue-400/20 to-purple-400/20'} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              <Icon className={`w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-125 transition-all duration-300 ${
+                href === '#services' ? 'text-purple-300 animate-pulse' : ''
+              }`} />
+              
+              {/* Enhanced glow effect for service icon */}
               {href === '#services' && (
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full animate-ping"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full animate-pulse"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-sm animate-pulse"></div>
+                </>
+              )}
+              
+              <div className={`absolute inset-0 bg-gradient-to-r ${href === '#services' ? 'from-purple-400/30 to-pink-400/30' : 'from-blue-400/20 to-purple-400/20'} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              
+              {href === '#services' && (
+                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg animate-bounce">
                   My Services
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rotate-45"></div>
                 </div>
               )}
             </a>
