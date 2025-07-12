@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Dynamic Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
         {/* Enhanced Main Title */}
         <div className="mb-6 sm:mb-8">
           <div className="flex justify-center items-center mb-4">
@@ -118,17 +118,17 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in-up leading-tight">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 sm:mb-6 animate-fade-in-up leading-tight">
             Hi, I'm{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient-x">
               Aryan Singh Thakur
             </span>
           </h1>
           
-          <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6 sm:mb-8 h-10 sm:h-12 md:h-14 flex items-center justify-center px-4">
+          <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-6 sm:mb-8 h-12 sm:h-14 md:h-16 flex items-center justify-center px-4">
             <span className="mr-2 sm:mr-3">I'm a</span>
             <div className="relative">
-              <span className={`text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-bold min-w-[180px] xs:min-w-[220px] sm:min-w-[280px] md:min-w-[320px] text-left inline-block transition-all duration-300 ${
+              <span className={`text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-bold min-w-[200px] xs:min-w-[250px] sm:min-w-[300px] md:min-w-[350px] text-left inline-block transition-all duration-300 ${
                 isTransitioning ? 'opacity-80 scale-95' : 'opacity-100 scale-100'
               }`}>
                 {displayText}
@@ -146,7 +146,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-10 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-fade-in-up px-4" style={{ animationDelay: '0.5s' }}>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 sm:mb-10 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-fade-in-up px-4" style={{ animationDelay: '0.5s' }}>
             I'm a passionate{' '}
             <span className="text-blue-400 font-semibold">Full Stack Developer</span> and{' '}
             <span className="text-purple-400 font-semibold">UI/UX Designer</span> who loves creating{' '}
@@ -155,7 +155,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Enhanced Social Links */}
-        <div className="flex justify-center space-x-3 sm:space-x-4 md:space-x-6 mb-8 sm:mb-12">
+        <div className="flex justify-center space-x-4 sm:space-x-6 md:space-x-8 mb-8 sm:mb-12">
           {[
             { icon: Github, href: 'https://github.com/heyoaryan', color: 'hover:bg-gray-700' },
             { icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-singh-thakur-12a422281/', color: 'hover:bg-blue-600' },
@@ -171,11 +171,11 @@ const Hero: React.FC = () => {
                 const event = new CustomEvent('showServicePopup');
                 window.dispatchEvent(event);
               } : undefined}
-              className={`group relative p-2.5 sm:p-3 md:p-4 bg-slate-800/50 backdrop-blur-sm rounded-full ${color} transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-fade-in-up ${href === '#services' ? 'ring-2 ring-purple-400/30 animate-pulse' : ''}`}
+              className={`group relative p-3 sm:p-4 bg-slate-800/50 backdrop-blur-sm rounded-full ${color} transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-fade-in-up ${href === '#services' ? 'ring-2 ring-purple-400/30 animate-pulse' : ''}`}
               style={{ animationDelay: `${0.7 + index * 0.1}s` }}
               title={href === '#services' ? 'View My Services' : ''}
             >
-              <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
               <div className={`absolute inset-0 bg-gradient-to-r ${href === '#services' ? 'from-purple-400/20 to-pink-400/20' : 'from-blue-400/20 to-purple-400/20'} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               {href === '#services' && (
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
@@ -187,25 +187,25 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Enhanced CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center mb-12 sm:mb-16 px-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4">
           <a
             href="#projects"
-            className="group relative bg-gradient-to-r from-blue-500 to-purple-600 text-white px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up overflow-hidden text-sm sm:text-base"
+            className="group relative bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up overflow-hidden text-sm sm:text-base"
             style={{ animationDelay: '1s' }}
           >
             <span className="relative z-10 flex items-center justify-center">
-              <Zap className="w-4 h-4 mr-2" />
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               View My Work
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
           <a
             href="#contact"
-            className="group relative border-2 border-blue-400 text-blue-400 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up overflow-hidden text-sm sm:text-base"
+            className="group relative border-2 border-blue-400 text-blue-400 px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-xl font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up overflow-hidden text-sm sm:text-base"
             style={{ animationDelay: '1.1s' }}
           >
             <span className="relative z-10 flex items-center justify-center">
-              <Mail className="w-4 h-4 mr-2" />
+              <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Get In Touch
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
