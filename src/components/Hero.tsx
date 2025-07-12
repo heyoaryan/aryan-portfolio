@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, Code, Terminal, Zap } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Code, Terminal, Zap, Briefcase } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -160,28 +160,28 @@ const Hero: React.FC = () => {
             { icon: Github, href: 'https://github.com/heyoaryan', color: 'hover:bg-gray-700' },
             { icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-singh-thakur-12a422281/', color: 'hover:bg-blue-600' },
             { icon: Mail, href: 'mailto:iamaryan721@gmail.com', color: 'hover:bg-red-600' },
-            { icon: Terminal, href: '#services', color: 'hover:bg-green-600', isService: true }
+            { icon: Briefcase, href: '#services', color: 'hover:bg-purple-600', isService: true, label: 'My Services' }
           ].map(({ icon: Icon, href, color }, index) => (
             <a
               key={index}
               href={href}
               onClick={href === '#services' ? (e) => {
                 e.preventDefault();
-                // Check if we have the navigate function available
-                if (window.location.pathname === '/') {
-                  // We're on home page, show the service popup
-                  const event = new CustomEvent('showServicePopup');
-                  window.dispatchEvent(event);
-                } else {
-                  // We're on another page, redirect to services
-                  window.location.href = '/#services';
-                }
+                // Show the service popup
+                const event = new CustomEvent('showServicePopup');
+                window.dispatchEvent(event);
               } : undefined}
-              className={`group relative p-3 sm:p-4 bg-slate-800/50 backdrop-blur-sm rounded-full ${color} transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-fade-in-up`}
+              className={`group relative p-3 sm:p-4 bg-slate-800/50 backdrop-blur-sm rounded-full ${color} transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-fade-in-up ${href === '#services' ? 'ring-2 ring-purple-400/30 animate-pulse' : ''}`}
               style={{ animationDelay: `${0.7 + index * 0.1}s` }}
+              title={href === '#services' ? 'View My Services' : ''}
             >
               <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className={`absolute inset-0 bg-gradient-to-r ${href === '#services' ? 'from-purple-400/20 to-pink-400/20' : 'from-blue-400/20 to-purple-400/20'} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              {href === '#services' && (
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  My Services
+                </div>
+              )}
             </a>
           ))}
         </div>

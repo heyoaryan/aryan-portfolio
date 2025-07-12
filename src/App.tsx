@@ -19,10 +19,6 @@ function App() {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    // Show service popup after main loading is complete
-    setTimeout(() => {
-      setShowServicePopup(true);
-    }, 2000);
   };
 
   const handleServiceLoadingComplete = () => {
