@@ -66,9 +66,11 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage = 'home', onNavigat
 
   return (
     <nav className={`fixed top-0 w-full z-40 transition-all duration-500 ${
-      scrolled 
-        ? 'bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-slate-800/50' 
-        : 'bg-transparent'
+      currentPage === 'services' 
+        ? 'bg-transparent' 
+        : scrolled 
+          ? 'bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-slate-800/50' 
+          : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">

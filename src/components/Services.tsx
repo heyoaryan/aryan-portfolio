@@ -38,8 +38,8 @@ const Services: React.FC = () => {
         'Modern UI/UX design',
         'Content Management Systems'
       ],
-      pricing: 'Starting from ₹9,999',
-      deliveryTime: '21-25 days',
+      pricing: 'Starting from ₹4,999',
+      deliveryTime: '15-20 days',
       color: 'from-blue-500 to-cyan-500',
       popular: false
     },
@@ -56,8 +56,8 @@ const Services: React.FC = () => {
         'Component-based Architecture',
         'Performance Optimization'
       ],
-      pricing: 'Starting from ₹4,999',
-      deliveryTime: '7-14 days',
+      pricing: 'Starting from ₹2,999',
+      deliveryTime: '5-10 days',
       color: 'from-purple-500 to-pink-500',
       popular: true
     },
@@ -75,8 +75,8 @@ const Services: React.FC = () => {
         'Authentication & Authorization',
         'Deployment on Cloud Platforms'
       ],
-      pricing: 'Starting from ₹14,999',
-      deliveryTime: '21-30 days',
+      pricing: 'Starting from ₹7,999',
+      deliveryTime: '15-25 days',
       color: 'from-green-500 to-emerald-500',
       popular: false
     }
