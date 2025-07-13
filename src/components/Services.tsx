@@ -276,12 +276,6 @@ Best regards`;
             >
               Get Collaborate
             </a>
-            <a
-              href="#contact"
-              className="border-2 border-blue-400 text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 hover:scale-105"
-            >
-              Contact Me
-            </a>
           </div>
         </div>
       </div>
