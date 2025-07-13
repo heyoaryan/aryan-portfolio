@@ -264,17 +264,17 @@ Best regards`;
         {/* Contact CTA */}
         <div className="text-center">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Ready to Start Your Project?
+            Want to Collaborate on a Project with Me?
           </h3>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project requirements and create something amazing together!
+            Let's work together and create something amazing! I'm excited to collaborate on your next project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:iamaryan721@gmail.com"
+              href="mailto:iamaryan721@gmail.com?subject=Collaboration%20Inquiry%20-%20Let's%20Work%20Together&body=Hi%20Aryan%2C%0A%0AI'm%20interested%20in%20collaborating%20with%20you%20on%20a%20project.%0A%0AProject%20Details%3A%0A-%20Project%20Type%3A%20%0A-%20Budget%3A%20%0A-%20Timeline%3A%20%0A-%20Requirements%3A%20%0A%0ALet's%20discuss%20how%20we%20can%20work%20together%21%0A%0ABest%20regards"
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              Get Free Consultation
+              Get Collaborate
             </a>
             <a
               href="#contact"
