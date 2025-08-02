@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Code2, Zap, Star, Sparkles, Cube, Box, Layers } from 'lucide-react';
+import { Code2, Zap, Star, Sparkles, Cuboid as Cube, Box, Layers } from 'lucide-react';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
