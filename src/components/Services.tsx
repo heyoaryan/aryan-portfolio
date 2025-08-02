@@ -41,7 +41,8 @@ const Services: React.FC = () => {
       pricing: 'Starting from ₹4,999',
       deliveryTime: '15-20 days',
       color: 'from-blue-500 to-cyan-500',
-      popular: false
+      popular: false,
+      isFree: true
     },
     {
       icon: Code,
@@ -59,7 +60,8 @@ const Services: React.FC = () => {
       pricing: 'Starting from ₹2,999',
       deliveryTime: '5-10 days',
       color: 'from-purple-500 to-pink-500',
-      popular: true
+      popular: true,
+      isFree: true
     },
     {
       icon: Database,
@@ -78,7 +80,8 @@ const Services: React.FC = () => {
       pricing: 'Starting from ₹7,999',
       deliveryTime: '15-25 days',
       color: 'from-green-500 to-emerald-500',
-      popular: false
+      popular: false,
+      isFree: true
     }
   ];
 
@@ -117,21 +120,22 @@ const Services: React.FC = () => {
     const subject = `Service Inquiry - ${selectedService.title}`;
     const body = `Hi Aryan,
 
-I'm interested in your ${selectedService.title} service.
+I'm interested in your FREE ${selectedService.title} service!
 
 Service Details:
 - Service: ${selectedService.title}
-- Starting Price: ${selectedService.pricing}
+- Special Offer: FREE (Limited Time)
+- Original Price: ${selectedService.pricing}
 - Delivery Time: ${selectedService.deliveryTime}
-- Payment Terms: 30% advance, 70% after completion
+- Payment Terms: FREE - No payment required!
 
 Project Requirements:
 [Please describe your project requirements here]
 
-Budget: ${selectedService.pricing}
+Budget: FREE (Portfolio Building Initiative)
 Timeline: ${selectedService.deliveryTime}
 
-Looking forward to working with you!
+I understand this is a FREE service as part of your portfolio building. Looking forward to working with you!
 
 Best regards`;
     
@@ -216,7 +220,16 @@ Best regards`;
                 <div className="border-t border-slate-700 pt-6 mb-6">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-400">Starting Price:</span>
-                    <span className="text-white font-bold">{service.pricing}</span>
+                    <div className="flex items-center space-x-2">
+                      {service.isFree && (
+                        <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                          FREE
+                        </span>
+                      )}
+                      <span className={`font-bold ${service.isFree ? 'text-green-400 line-through text-sm' : 'text-white'}`}>
+                        {service.pricing}
+                      </span>
+                    </div>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-400">Delivery Time:</span>
@@ -267,14 +280,15 @@ Best regards`;
             Want to Collaborate on a Project with Me?
           </h3>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's work together and create something amazing! I'm excited to collaborate on your next project.
+            Let's work together and create something amazing! All services are currently FREE as part of my portfolio building initiative.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:iamaryan721@gmail.com?subject=Collaboration%20Inquiry%20-%20Let's%20Work%20Together&body=Hi%20Aryan%2C%0A%0AI'm%20interested%20in%20collaborating%20with%20you%20on%20a%20project.%0A%0AProject%20Details%3A%0A-%20Project%20Type%3A%20%0A-%20Budget%3A%20%0A-%20Timeline%3A%20%0A-%20Requirements%3A%20%0A%0ALet's%20discuss%20how%20we%20can%20work%20together%21%0A%0ABest%20regards"
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+              href="mailto:iamaryan721@gmail.com?subject=FREE%20Service%20Request%20-%20Let's%20Work%20Together&body=Hi%20Aryan%2C%0A%0AI'm%20interested%20in%20your%20FREE%20services%20offer!%0A%0AProject%20Details%3A%0A-%20Service%20Type%3A%20%0A-%20Project%20Description%3A%20%0A-%20Timeline%3A%20%0A-%20Requirements%3A%20%0A%0AI%20understand%20this%20is%20a%20FREE%20service%20as%20part%20of%20your%20portfolio%20building.%0A%0ALet's%20create%20something%20amazing%20together%21%0A%0ABest%20regards"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             >
-              Get Collaborate
+              <span className="relative z-10">Get FREE Service</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           </div>
         </div>
@@ -326,15 +340,20 @@ Best regards`;
               <div className="bg-slate-700/30 rounded-xl p-6 mb-6">
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center">
                   <CreditCard className="w-5 h-5 mr-2 text-blue-400" />
-                  Pricing & Payment Terms
+                  Pricing & Payment Terms (Currently FREE!)
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div className="bg-slate-800/50 rounded-lg p-4">
                     <div className="flex items-center mb-2">
                       <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                      <span className="text-gray-400 text-sm">Starting Price</span>
+                      <span className="text-gray-400 text-sm">Special Offer</span>
                     </div>
-                    <span className="text-white font-bold text-lg">{selectedService.pricing}</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold px-3 py-1 rounded-full animate-pulse">
+                        FREE
+                      </span>
+                      <span className="text-green-400 line-through text-sm">{selectedService.pricing}</span>
+                    </div>
                   </div>
                   <div className="bg-slate-800/50 rounded-lg p-4">
                     <div className="flex items-center mb-2">
@@ -349,17 +368,22 @@ Best regards`;
                 <div className="border-t border-slate-600/50 pt-4">
                   <h4 className="text-white font-semibold mb-3 flex items-center">
                     <Shield className="w-4 h-4 mr-2 text-green-400" />
-                    Payment Structure
+                    Payment Structure (FREE Period)
                   </h4>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-400">Advance Payment (30%)</span>
-                      <span className="text-green-400 font-semibold">Required to start</span>
+                      <span className="text-gray-400">Advance Payment</span>
+                      <span className="text-green-400 font-semibold">FREE - No payment required!</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-400">Final Payment (70%)</span>
-                      <span className="text-blue-400 font-semibold">After completion</span>
+                      <span className="text-gray-400">Final Payment</span>
+                      <span className="text-green-400 font-semibold">FREE - Limited time offer!</span>
                     </div>
+                  </div>
+                  <div className="mt-3 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                    <p className="text-green-400 text-sm">
+                      🎉 <strong>Special Launch Offer:</strong> All services are currently FREE to build my portfolio and gain experience. Limited time only!
+                    </p>
                   </div>
                 </div>
               </div>
@@ -386,10 +410,10 @@ Best regards`;
               {/* CTA Button */}
               <button
                 onClick={handleSendEmail}
-                className={`w-full bg-gradient-to-r ${selectedService.color} text-white py-4 px-6 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group relative overflow-hidden`}
+                className={`w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 px-6 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group relative overflow-hidden`}
               >
                 <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                <span>Send Inquiry Email</span>
+                <span>Get FREE Service Now!</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>

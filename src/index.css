@@ -18,6 +18,54 @@
 }
 
 /* Enhanced Custom Animations */
+@keyframes transform-3d {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) rotateZ(1deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-5deg) rotateY(-5deg) rotateZ(-1deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) rotateZ(2deg);
+  }
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translate3d(5px, -10px, 10px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translate3d(-5px, -20px, 20px) rotateX(-5deg) rotateY(-5deg);
+  }
+  75% {
+    transform: translate3d(3px, -15px, 15px) rotateX(3deg) rotateY(-3deg);
+  }
+}
+
+@keyframes cube-rotate {
+  0% {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: perspective(800px) rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: perspective(800px) rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  }
+  75% {
+    transform: perspective(800px) rotateX(0deg) rotateY(90deg) rotateZ(90deg);
+  }
+  100% {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -195,6 +243,97 @@
 
 .animate-morph {
   animation: morph 8s ease-in-out infinite;
+}
+
+/* Enhanced 3D Animation Classes */
+.animate-transform-3d {
+  animation: transform-3d 6s ease-in-out infinite;
+}
+
+.animate-float-3d {
+  animation: float-3d 8s ease-in-out infinite;
+}
+
+.animate-cube-rotate {
+  animation: cube-rotate 10s linear infinite;
+}
+
+/* 3D Transform utilities */
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Enhanced 3D Hover Effects */
+.hover-3d {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) translateZ(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Card Effects */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateY(15deg) rotateX(5deg);
+}
+
+/* 3D Text Effects */
+.text-3d {
+  text-shadow: 
+    0 1px 0 rgba(255,255,255,0.1),
+    0 2px 0 rgba(255,255,255,0.1),
+    0 3px 0 rgba(255,255,255,0.1),
+    0 4px 0 rgba(255,255,255,0.1),
+    0 5px 0 rgba(255,255,255,0.1),
+    0 6px 1px rgba(0,0,0,0.1),
+    0 0 5px rgba(0,0,0,0.1),
+    0 1px 3px rgba(0,0,0,0.3),
+    0 3px 5px rgba(0,0,0,0.2),
+    0 5px 10px rgba(0,0,0,0.25);
+}
+
+/* 3D Button Effects */
+.btn-3d {
+  transform: perspective(500px) rotateX(15deg);
+  transition: all 0.3s ease;
+}
+
+.btn-3d:hover {
+  transform: perspective(500px) rotateX(0deg) translateY(-5px);
+}
+
+/* 3D Glow Effects */
+.glow-3d {
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 0 60px rgba(59, 130, 246, 0.1);
+}
+
+.glow-3d-purple {
+  box-shadow: 
+    0 0 20px rgba(139, 92, 246, 0.4),
+    0 0 40px rgba(139, 92, 246, 0.2),
+    0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+.glow-3d-green {
+  box-shadow: 
+    0 0 20px rgba(34, 197, 94, 0.4),
+    0 0 40px rgba(34, 197, 94, 0.2),
+    0 0 60px rgba(34, 197, 94, 0.1);
 }
 
 /* Service icon special animations */
