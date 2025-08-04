@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryan Singh Thakur - Resume</title>
+    <style>
+        /* Anti-screenshot and recording protection */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Protection overlay */
+        .protection-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #ff0000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(51, 65, 85, 0.5);
+            border-radius: 15px;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .section h2 {
+            color: #60a5fa;
+            margin-top: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '▶';
+            color: #3b82f6;
+            font-size: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: scale(1.02);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .skill-category {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .skill-category h3 {
+            color: #a78bfa;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 12px;
+            border-left: 3px solid #10b981;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #34d399;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .company, .education-item .institution {
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .duration, .education-item .duration {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .project-item {
+            background: rgba(236, 72, 153, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.2);
+        }
+
+        .project-item h3 {
+            color: #f472b6;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .warning-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Additional protection styles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @media print {
+            body {
+                background: #000 !important;
+                color: #000 !important;
+            }
+            * {
+                visibility: hidden !important;
+            }
+            .protection-overlay {
+                display: flex !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="protection-overlay" id="protectionOverlay">
+        🚫 PROTECTED CONTENT - UNAUTHORIZED ACCESS DETECTED 🚫
+    </div>
+
+    <div class="warning-banner">
+        🔒 PROTECTED RESUME - Screenshots, Recording & Downloads Prohibited 🔒
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Aryan Singh Thakur</h1>
+            <p>Full Stack Developer & UI/UX Designer</p>
+        </div>
+
+        <div class="section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>iamaryan721@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 8384041061</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Delhi, India</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>linkedin.com/in/aryan-singh-thakur-12a422281</span>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <span>github.com/heyoaryan</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p>Passionate Full Stack Developer with 2+ years of experience in creating innovative web solutions. Specialized in MERN stack development with a strong focus on user experience and modern web technologies. Committed to delivering high-quality, scalable applications that solve real-world problems.</p>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <ul class="skill-list">
+                        <li>React.js</li>
+                        <li>JavaScript/ES6+</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Bootstrap & Tailwind CSS</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <ul class="skill-list">
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>MongoDB</li>
+                        <li>REST APIs</li>
+                        <li>JWT Authentication</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Postman</li>
+                        <li>Netlify & Vercel</li>
+                        <li>Figma</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Design & UX</h3>
+                    <ul class="skill-list">
+                        <li>UI/UX Design</li>
+                        <li>Figma</li>
+                        <li>User Experience</li>
+                        <li>Responsive Design</li>
+                        <li>Prototyping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Computer Application (BCA)</h3>
+                <div class="institution">Guru Gobind Singh Indraprastha University</div>
+                <div class="duration">2023 - Present</div>
+                <p>Currently pursuing BCA with focus on computer science fundamentals, programming languages, and software development methodologies.</p>
+            </div>
+            <div class="education-item">
+                <h3>12th Commerce with Mathematics</h3>
+                <div class="institution">CBSE - Sant Sujan Singh Ji International School</div>
+                <div class="duration">2023</div>
+                <p>Completed higher secondary education with Commerce and Mathematics, building strong analytical and problem-solving skills.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>Zero Waste Delhi</h3>
+                    <p>A comprehensive waste management platform for Delhi, enabling users to report waste issues, track collection schedules, and access recycling resources.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">JWT</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Mind Mitra</h3>
+                    <p>A mental health platform connecting users with professionals, offering resources, articles, and community support for mental wellness.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">API Integration</span>
+                        <span class="tech-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Task Flow Tracker</h3>
+                    <p>A task management application helping users organize tasks, set deadlines, and track progress with an intuitive interface.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Local Storage</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Services Offered</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>Web Development (FREE)</h3>
+                    <p>Complete website solutions with modern design, responsive layout, and optimal performance. All services are provided free of cost.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag">SEO Optimized</span>
+                        <span class="tech-tag">Fast Loading</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Frontend Development (FREE)</h3>
+                    <p>Interactive user interfaces using React.js and modern frontend technologies. Building scalable and maintainable applications.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Interactive UI</span>
+                        <span class="tech-tag">API Integration</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>MERN Stack Development (FREE)</h3>
+                    <p>Full-stack applications using MongoDB, Express.js, React.js, and Node.js with robust backend systems.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Achievements & Highlights</h2>
+            <ul class="skill-list">
+                <li>2+ years of hands-on experience in web development</li>
+                <li>Successfully completed 5+ projects with modern web technologies</li>
+                <li>Specialized in MERN stack development</li>
+                <li>Strong focus on user experience and responsive design</li>
+                <li>Providing FREE web development services to build portfolio</li>
+                <li>Active on GitHub with multiple open-source contributions</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Advanced protection against screenshots and recording
+        (function() {
+            'use strict';
+            
+            const protectionOverlay = document.getElementById('protectionOverlay');
+            let isProtected = false;
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                showProtection();
+                return false;
+            });
+
+            // Disable common keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S, Ctrl+A, Ctrl+P
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 65 || e.keyCode === 80)) ||
+                    e.keyCode === 44) { // Print Screen
+                    e.preventDefault();
+                    showProtection();
+                    return false;
+                }
+            });
+
+            // Detect developer tools
+            let devtools = {
+                open: false,
+                orientation: null
+            };
+
+            const threshold = 160;
+
+            setInterval(function() {
+                if (window.outerHeight - window.innerHeight > threshold || 
+                    window.outerWidth - window.innerWidth > threshold) {
+                    if (!devtools.open) {
+                        devtools.open = true;
+                        showProtection();
+                    }
+                } else {
+                    devtools.open = false;
+                }
+            }, 500);
+
+            // Detect screen recording/capture
+            function detectScreenCapture() {
+                if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
+                    navigator.mediaDevices.getDisplayMedia({ video: true })
+                        .then(function(stream) {
+                            showProtection();
+                            stream.getTracks().forEach(track => track.stop());
+                        })
+                        .catch(function() {
+                            // Screen capture not active
+                        });
+                }
+            }
+
+            // Check for screen capture every 2 seconds
+            setInterval(detectScreenCapture, 2000);
+
+            // Blur content when window loses focus (potential screenshot)
+            window.addEventListener('blur', function() {
+                document.body.style.filter = 'blur(10px)';
+                setTimeout(function() {
+                    document.body.style.filter = 'none';
+                }, 1000);
+            });
+
+            // Detect print attempts
+            window.addEventListener('beforeprint', function(e) {
+                e.preventDefault();
+                showProtection();
+                return false;
+            });
+
+            // Show protection overlay
+            function showProtection() {
+                if (!isProtected) {
+                    isProtected = true;
+                    protectionOverlay.style.display = 'flex';
+                    document.body.style.filter = 'blur(20px)';
+                    
+                    setTimeout(function() {
+                        protectionOverlay.style.display = 'none';
+                        document.body.style.filter = 'none';
+                        isProtected = false;
+                    }, 3000);
+                }
+            }
+
+            // Disable drag and drop
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Disable text selection on mobile
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Additional mobile protection
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            });
+
+            // Disable zoom
+            document.addEventListener('wheel', function(e) {
+                if (e.ctrlKey) {
+                    e.preventDefault();
+                }
+            });
+
+            // Random content scrambling for additional protection
+            setInterval(function() {
+                const elements = document.querySelectorAll('p, h1, h2, h3, li');
+                elements.forEach(function(el) {
+                    const originalText = el.textContent;
+                    el.setAttribute('data-original', originalText);
+                });
+            }, 5000);
+
+            console.clear();
+            console.log('%c🚫 PROTECTED CONTENT', 'color: red; font-size: 20px; font-weight: bold;');
+            console.log('%cThis resume is protected against unauthorized access, screenshots, and recording.', 'color: orange; font-size: 14px;');
+        })();
+    </script>
+</body>
+</html>

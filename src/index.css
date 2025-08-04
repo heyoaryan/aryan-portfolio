@@ -66,6 +66,54 @@
   }
 }
 
+@keyframes transform-3d {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) rotateZ(1deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-5deg) rotateY(-5deg) rotateZ(-1deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) rotateZ(2deg);
+  }
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translate3d(5px, -10px, 10px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translate3d(-5px, -20px, 20px) rotateX(-5deg) rotateY(-5deg);
+  }
+  75% {
+    transform: translate3d(3px, -15px, 15px) rotateX(3deg) rotateY(-3deg);
+  }
+}
+
+@keyframes cube-rotate {
+  0% {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: perspective(800px) rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: perspective(800px) rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  }
+  75% {
+    transform: perspective(800px) rotateX(0deg) rotateY(90deg) rotateZ(90deg);
+  }
+  100% {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

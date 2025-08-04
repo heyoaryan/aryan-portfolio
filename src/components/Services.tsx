@@ -41,8 +41,7 @@ const Services: React.FC = () => {
       pricing: 'Starting from ₹4,999',
       deliveryTime: '15-20 days',
       color: 'from-blue-500 to-cyan-500',
-      popular: false,
-      isFree: true
+      popular: false
     },
     {
       icon: Code,
@@ -60,8 +59,7 @@ const Services: React.FC = () => {
       pricing: 'Starting from ₹2,999',
       deliveryTime: '5-10 days',
       color: 'from-purple-500 to-pink-500',
-      popular: true,
-      isFree: true
+      popular: true
     },
     {
       icon: Database,
@@ -80,8 +78,7 @@ const Services: React.FC = () => {
       pricing: 'Starting from ₹7,999',
       deliveryTime: '15-25 days',
       color: 'from-green-500 to-emerald-500',
-      popular: false,
-      isFree: true
+      popular: false
     }
   ];
 
@@ -118,26 +115,7 @@ const Services: React.FC = () => {
     if (!selectedService) return;
     
     const subject = `Service Inquiry - ${selectedService.title}`;
-    const body = `Hi Aryan,
-
-I'm interested in your FREE ${selectedService.title} service!
-
-Service Details:
-- Service: ${selectedService.title}
-- Special Offer: FREE (Limited Time)
-- Original Price: ${selectedService.pricing}
-- Delivery Time: ${selectedService.deliveryTime}
-- Payment Terms: FREE - No payment required!
-
-Project Requirements:
-[Please describe your project requirements here]
-
-Budget: FREE (Portfolio Building Initiative)
-Timeline: ${selectedService.deliveryTime}
-
-I understand this is a FREE service as part of your portfolio building. Looking forward to working with you!
-
-Best regards`;
+    const body = `Hi Aryan,\n\nI'm interested in your FREE ${selectedService.title} service!\n\nService Details:\n- Service: ${selectedService.title}\n- Price: FREE (Always)\n- Delivery Time: ${selectedService.deliveryTime}\n- Payment Terms: FREE - No payment required!\n\nProject Requirements:\n[Please describe your project requirements here]\n\nBudget: FREE\nTimeline: ${selectedService.deliveryTime}\n\nAll services are FREE! Looking forward to working with you!\n\nBest regards`;
     
     window.open(`mailto:iamaryan721@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
     setShowServiceModal(false);
@@ -220,13 +198,11 @@ Best regards`;
                 <div className="border-t border-slate-700 pt-6 mb-6">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-400">Starting Price:</span>
-                    <div className="flex items-center space-x-2">
-                      {service.isFree && (
-                        <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                          FREE
-                        </span>
-                      )}
-                      <span className={`font-bold ${service.isFree ? 'text-green-400 line-through text-sm' : 'text-white'}`}>
+                    <div className="flex items-center space-x-2 relative">
+                      <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-lg">
+                        FREE
+                      </span>
+                      <span className="text-green-400 line-through text-sm opacity-60">
                         {service.pricing}
                       </span>
                     </div>
@@ -277,14 +253,14 @@ Best regards`;
         {/* Contact CTA */}
         <div className="text-center">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Want to Collaborate on a Project with Me?
+            Ready to Start Your FREE Project?
           </h3>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's work together and create something amazing! All services are currently FREE as part of my portfolio building initiative.
+            All my services are completely FREE! I provide quality web development services at no cost. Let's build something amazing together!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:iamaryan721@gmail.com?subject=FREE%20Service%20Request%20-%20Let's%20Work%20Together&body=Hi%20Aryan%2C%0A%0AI'm%20interested%20in%20your%20FREE%20services%20offer!%0A%0AProject%20Details%3A%0A-%20Service%20Type%3A%20%0A-%20Project%20Description%3A%20%0A-%20Timeline%3A%20%0A-%20Requirements%3A%20%0A%0AI%20understand%20this%20is%20a%20FREE%20service%20as%20part%20of%20your%20portfolio%20building.%0A%0ALet's%20create%20something%20amazing%20together%21%0A%0ABest%20regards"
+              href="mailto:iamaryan721@gmail.com?subject=FREE%20Service%20Request%20-%20Let's%20Work%20Together&body=Hi%20Aryan%2C%0A%0AI'm%20interested%20in%20your%20FREE%20services!%0A%0AProject%20Details%3A%0A-%20Service%20Type%3A%20%0A-%20Project%20Description%3A%20%0A-%20Timeline%3A%20%0A-%20Requirements%3A%20%0A%0AAll%20services%20are%20FREE%20-%20no%20payment%20required!%0A%0ALet's%20create%20something%20amazing%20together%21%0A%0ABest%20regards"
               className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             >
               <span className="relative z-10">Get FREE Service</span>
@@ -345,11 +321,11 @@ Best regards`;
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div className="bg-slate-800/50 rounded-lg p-4">
                     <div className="flex items-center mb-2">
-                      <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                      <span className="text-gray-400 text-sm">Special Offer</span>
+                      <Star className="w-4 h-4 text-green-400 mr-2" />
+                      <span className="text-gray-400 text-sm">Always FREE</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold px-3 py-1 rounded-full animate-pulse">
+                      <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold px-3 py-1 rounded-full animate-pulse shadow-lg">
                         FREE
                       </span>
                       <span className="text-green-400 line-through text-sm">{selectedService.pricing}</span>
@@ -368,7 +344,7 @@ Best regards`;
                 <div className="border-t border-slate-600/50 pt-4">
                   <h4 className="text-white font-semibold mb-3 flex items-center">
                     <Shield className="w-4 h-4 mr-2 text-green-400" />
-                    Payment Structure (FREE Period)
+                    Payment Structure (Always FREE)
                   </h4>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
@@ -377,12 +353,12 @@ Best regards`;
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-400">Final Payment</span>
-                      <span className="text-green-400 font-semibold">FREE - Limited time offer!</span>
+                      <span className="text-green-400 font-semibold">FREE - Always!</span>
                     </div>
                   </div>
                   <div className="mt-3 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
                     <p className="text-green-400 text-sm">
-                      🎉 <strong>Special Launch Offer:</strong> All services are currently FREE to build my portfolio and gain experience. Limited time only!
+                      🎉 <strong>Always FREE:</strong> All my services are completely FREE! I believe in providing quality work without any cost.
                     </p>
                   </div>
                 </div>
