@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Code, Database, Palette, Cloud, Shield, Zap, ChevronRight } from 'lucide-react';
+import { Code, Database, Palette, Cloud } from 'lucide-react';
 
 const Skills: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -70,6 +70,8 @@ const Skills: React.FC = () => {
     }
   ];
 
+  const Icon = skillCategories[activeCategory].icon;
+
   return (
     <section id="skills" className="py-12 sm:py-16 md:py-20 bg-slate-900" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +130,7 @@ const Skills: React.FC = () => {
             <div className="flex items-center mb-6 sm:mb-8">
               <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${skillCategories[activeCategory].color} p-3 sm:p-4 mr-4 sm:mr-6 transform-gpu`}
                    style={{ transform: 'rotateX(10deg) rotateY(10deg)' }}>
-                <skillCategories[activeCategory].icon className="w-full h-full text-white" />
+                <Icon className="w-full h-full text-white" />
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
