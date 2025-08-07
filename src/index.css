@@ -440,6 +440,19 @@ html {
 /* Prevent horizontal scroll on mobile */
 body {
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Fix mobile viewport issues */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Glass morphism effect */

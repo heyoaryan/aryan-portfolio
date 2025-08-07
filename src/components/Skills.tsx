@@ -73,7 +73,7 @@ const Skills: React.FC = () => {
   const Icon = skillCategories[activeCategory].icon;
 
   return (
-    <section id="skills" className="py-12 sm:py-16 md:py-20 bg-slate-900" ref={sectionRef}>
+    <section id="skills" className="py-12 sm:py-16 md:py-20 bg-slate-900 w-full overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
