@@ -142,12 +142,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          {/* Privacy Notice */}
-          <div className="mt-4 sm:mt-6 text-center">
-            <p className="text-xs text-gray-500">
-              This website is protected by advanced security measures. Unauthorized recording, screenshots, or downloads are prohibited.
-            </p>
-          </div>
         </div>
       </div>
 

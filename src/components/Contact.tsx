@@ -127,22 +127,6 @@ const Contact: React.FC = () => {
                 ))}
               </div>
 
-              <div className="pt-6 sm:pt-8 border-t border-slate-700">
-                <h4 className="text-sm sm:text-base text-white font-semibold mb-3 sm:mb-4">Follow Me</h4>
-                <div className="flex space-x-3 sm:space-x-4">
-                  {socialLinks.map((social, index) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      className={`p-2.5 sm:p-3 bg-slate-700 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} group transform-gpu`}
-                      aria-label={social.label}
-                      style={{ transform: 'perspective(200px) rotateX(5deg)' }}
-                    >
-                      <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
 

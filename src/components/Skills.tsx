@@ -5,12 +5,21 @@ const Skills: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
+  const [animatedSkills, setAnimatedSkills] = useState<number[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Animate skills bars when visible
+          setTimeout(() => {
+            skillCategories[activeCategory].skills.forEach((_, index) => {
+              setTimeout(() => {
+                setAnimatedSkills(prev => [...prev, index]);
+              }, index * 200);
+            });
+          }, 500);
         }
       },
       { threshold: 0.1 }
@@ -23,6 +32,19 @@ const Skills: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Reset animated skills when category changes
+  useEffect(() => {
+    setAnimatedSkills([]);
+    if (isVisible) {
+      setTimeout(() => {
+        skillCategories[activeCategory].skills.forEach((_, index) => {
+          setTimeout(() => {
+            setAnimatedSkills(prev => [...prev, index]);
+          }, index * 200);
+        });
+      }, 300);
+    }
+  }, [activeCategory, isVisible]);
   const skillCategories = [
     {
       icon: Code,
@@ -159,7 +181,7 @@ const Skills: React.FC = () => {
                     <div
                       className={`bg-gradient-to-r ${skillCategories[activeCategory].color} h-full rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
                       style={{
-                        width: isVisible ? `${skill.level}%` : '0%',
+                        width: animatedSkills.includes(skillIndex) ? `${skill.level}%` : '0%',
                         transitionDelay: `${skillIndex * 200}ms`
                       }}
                     >

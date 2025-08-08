@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, Code, Terminal, Zap, FileText, Eye } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Code, Terminal, Zap, FileText, Eye, Briefcase } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -188,11 +188,15 @@ const Hero: React.FC = () => {
           {[
             { icon: Github, href: 'https://github.com/heyoaryan', color: 'hover:bg-gray-700' },
             { icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-singh-thakur-12a422281/', color: 'hover:bg-blue-600' },
-            { icon: Mail, href: 'mailto:iamaryan721@gmail.com', color: 'hover:bg-red-600' }
+            { icon: Briefcase, href: '#', color: 'hover:bg-purple-600', onClick: () => {
+              // Trigger service popup
+              window.dispatchEvent(new CustomEvent('showServicePopup'));
+            }}
           ].map(({ icon: Icon, href, color }, index) => (
             <a
               key={index}
               href={href}
+              onClick={onClick}
               className={`group relative p-2.5 sm:p-3 md:p-4 backdrop-blur-sm rounded-full transition-all duration-500 hover:scale-125 hover:shadow-2xl animate-fade-in-up transform-gpu bg-slate-800/50 ${color}`}
               style={{ 
                 animationDelay: `${0.7 + index * 0.1}s`,
