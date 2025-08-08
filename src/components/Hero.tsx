@@ -57,6 +57,12 @@ const Hero: React.FC = () => {
     window.open('/resume', '_blank');
   };
 
+  const handleNavigateToServices = () => {
+    // Trigger service loading and navigation
+    const event = new CustomEvent('navigateToServices');
+    window.dispatchEvent(event);
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden w-full">
       {/* Enhanced 3D Animated Background */}
@@ -191,11 +197,12 @@ const Hero: React.FC = () => {
             { icon: Briefcase, href: '#', color: 'hover:bg-purple-600', onClick: () => {
               // Trigger service popup
               window.dispatchEvent(new CustomEvent('showServicePopup'));
-            }}
-          ].map(({ icon: Icon, href, color }, index) => (
+            { icon: Briefcase, href: '#', color: 'hover:bg-purple-600', isService: true }
+          ].map(({ icon: Icon, href, color, isService }, index) => (
             <a
               key={index}
               href={href}
+              onClick={isService ? (e) => { e.preventDefault(); handleNavigateToServices(); } : undefined}
               className={`group relative p-2.5 sm:p-3 md:p-4 backdrop-blur-sm rounded-full transition-all duration-500 hover:scale-125 hover:shadow-2xl animate-fade-in-up transform-gpu bg-slate-800/50 ${color}`}
               style={{ 
                 animationDelay: `${0.7 + index * 0.1}s`,
@@ -228,19 +235,19 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
           <button
-            onClick={handleViewResume}
-            className="group relative border-2 border-blue-400 text-blue-400 px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 rounded-xl font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up overflow-hidden text-sm sm:text-base transform-gpu"
+            onClick={handleNavigateToServices}
+            className="group relative border-2 border-purple-400 text-purple-400 px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 rounded-xl font-semibold hover:bg-purple-400 hover:text-white transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up overflow-hidden text-sm sm:text-base transform-gpu"
             style={{ 
               animationDelay: '1.1s',
               transform: 'perspective(600px) rotateX(8deg)',
-              boxShadow: '0 0 20px rgba(59, 130, 246, 0.3), 0 15px 25px rgba(0, 0, 0, 0.2)'
+              boxShadow: '0 0 20px rgba(139, 92, 246, 0.3), 0 15px 25px rgba(0, 0, 0, 0.2)'
             }}
           >
             <span className="relative z-10 flex items-center justify-center">
-              <FileText className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2" />
-              View Resume
+              <Briefcase className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2" />
+              View Services
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
         </div>
 
@@ -263,6 +270,16 @@ const Hero: React.FC = () => {
              transform: 'perspective(300px) rotateY(60deg) rotateX(30deg)',
              boxShadow: '0 0 10px rgba(236, 72, 153, 0.2)'
            }}></div>
+
+      {/* Cursor Light Effect */}
+      <div 
+        className="fixed w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none z-0 transition-all duration-300 ease-out"
+        style={{
+          left: mousePosition.x - 192,
+          top: mousePosition.y - 192,
+          transform: `translate3d(0, 0, 0)`,
+        }}
+      />
     </section>
   );
 };

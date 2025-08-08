@@ -37,7 +37,13 @@ function App() {
       setShowServicePopup(true);
     };
 
+    const handleNavigateToServices = () => {
+      setIsServiceLoading(true);
+      setCurrentPage('loading-services');
+    };
+
     window.addEventListener('showServicePopup', handleShowServicePopup);
+    window.addEventListener('navigateToServices', handleNavigateToServices);
     return () => window.removeEventListener('showServicePopup', handleShowServicePopup);
   }, []);
 

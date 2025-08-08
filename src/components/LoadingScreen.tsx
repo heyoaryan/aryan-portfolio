@@ -10,13 +10,13 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   const [currentText, setCurrentText] = useState('Initializing 3D Portfolio...');
 
   const loadingTexts = [
-    'Initializing 3D Portfolio...',
-    'Loading 3D Components...',
-    'Compiling Advanced Shaders...',
-    'Optimizing 3D Performance...',
-    'Rendering 3D Elements...',
+    'Loading Portfolio...',
+    'Setting up Components...',
+    'Preparing Skills & Projects...',
+    'Loading Contact Information...',
     'Finalizing Experience...',
-    'Welcome to the Future!'
+    'Almost Ready...',
+    'Welcome to My Portfolio!'
   ];
 
   useEffect(() => {

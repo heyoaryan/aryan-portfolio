@@ -10,13 +10,13 @@ const ServiceLoadingScreen: React.FC<ServiceLoadingScreenProps> = ({ onLoadingCo
   const [currentText, setCurrentText] = useState('Loading FREE Services...');
 
   const loadingTexts = [
-    'Loading FREE Services...',
-    'Preparing Web Development...',
-    'Setting up Frontend Tools...',
-    'Initializing MERN Stack...',
-    'Configuring FREE Offerings...',
-    'Rendering Service Portal...',
-    'Welcome to FREE Services!'
+    'Loading My Services...',
+    'Preparing Web Development Services...',
+    'Setting up Frontend Solutions...',
+    'Initializing MERN Stack Services...',
+    'Configuring Service Offerings...',
+    'Almost Ready...',
+    'Welcome to My Services!'
   ];
 
   useEffect(() => {
