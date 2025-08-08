@@ -196,7 +196,6 @@ const Hero: React.FC = () => {
             <a
               key={index}
               href={href}
-              onClick={onClick}
               className={`group relative p-2.5 sm:p-3 md:p-4 backdrop-blur-sm rounded-full transition-all duration-500 hover:scale-125 hover:shadow-2xl animate-fade-in-up transform-gpu bg-slate-800/50 ${color}`}
               style={{ 
                 animationDelay: `${0.7 + index * 0.1}s`,
