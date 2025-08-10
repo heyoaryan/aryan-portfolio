@@ -130,7 +130,7 @@ const Hero: React.FC = () => {
             </p>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
-                Aryan Singh
+                Aryan Singh Thakur
               </span>
             </h1>
           </div>
