@@ -48,9 +48,9 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage = 'home', onNavigat
       if (onNavigateToServices) {
         onNavigateToServices();
       }
-    } else if (currentPage === 'services') {
-      // If we're on services page and clicking other nav items, reload the page to go back to home
-      window.location.href = item.href;
+    } else if (currentPage === 'services' && item.name !== 'Services') {
+      // If we're on services page and clicking other nav items, go back to home
+      window.location.href = '/';
     } else {
       // Smooth scroll to section on home page
       const targetElement = document.querySelector(item.href);

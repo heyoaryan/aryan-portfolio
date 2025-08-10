@@ -84,7 +84,9 @@ function App() {
           
           <Navigation currentPage={currentPage} onNavigateToServices={handleNavigateToServices} />
           
-          {currentPage === 'home' && (
+          {currentPage === 'services' ? (
+            <Services />
+          ) : (
             <>
               <Hero />
               <About />
@@ -93,8 +95,6 @@ function App() {
               <Contact />
             </>
           )}
-          
-          {currentPage === 'services' && <Services />}
           
           <Footer />
         </>
