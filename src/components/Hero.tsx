@@ -6,6 +6,7 @@ const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
   const fullText = "Full Stack Developer";
+  const fullText = "Backend Developer";
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
