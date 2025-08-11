@@ -45,7 +45,10 @@ const Footer: React.FC = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center mb-4 sm:mb-6 group">
+            <div 
+              className="flex items-center mb-4 sm:mb-6 group cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={scrollToTop}
+            >
               <div className="relative">
                 <Code className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 group-hover:rotate-180 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>

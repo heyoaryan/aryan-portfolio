@@ -5,35 +5,47 @@ const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
-  const fullText = "Full Stack Developer";
+  const texts = [
+    "Full Stack Developer",
+    "MERN Stack Developer", 
+    "React.js Developer",
+    "Node.js Developer",
+    "Hackathon Enthusiast",
+    "Problem Solver",
+    "Tech Innovator",
+    "Web Developer"
+  ];
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
     let index = 0;
     let isDeleting = false;
+    const currentText = texts[currentTextIndex];
     
     const interval = setInterval(() => {
-      if (!isDeleting && index < fullText.length) {
-        setText(fullText.slice(0, index + 1));
+      if (!isDeleting && index < currentText.length) {
+        setText(currentText.slice(0, index + 1));
         index++;
-      } else if (!isDeleting && index === fullText.length) {
+      } else if (!isDeleting && index === currentText.length) {
         setTimeout(() => {
           isDeleting = true;
-        }, 2000);
+        }, 1500);
       } else if (isDeleting && index > 0) {
-        setText(fullText.slice(0, index - 1));
+        setText(currentText.slice(0, index - 1));
         index--;
       } else if (isDeleting && index === 0) {
         isDeleting = false;
+        setCurrentTextIndex((prev) => (prev + 1) % texts.length);
         setIsTyping(false);
         setTimeout(() => {
           setIsTyping(true);
-        }, 500);
+        }, 300);
       }
-    }, isDeleting ? 50 : 100);
+    }, isDeleting ? 30 : 80);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentTextIndex, texts]);
 
   // Mouse tracking for cursor light effect
   useEffect(() => {
