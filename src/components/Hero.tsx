@@ -62,8 +62,7 @@ const Hero: React.FC = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/heyoaryan', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-singh-thakur-12a422281/', label: 'LinkedIn' },
-    { icon: Briefcase, onClick: handleServiceClick, label: 'Services' }
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-singh-thakur-12a422281/', label: 'LinkedIn' }
   ];
 
   return (
@@ -162,31 +161,19 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               {socialLinks.map((social, index) => (
                 <div key={social.label}>
-                  {social.onClick ? (
-                    <button
-                      onClick={social.onClick}
-                      className="group p-3 sm:p-4 bg-slate-800/50 rounded-xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-2xl border border-slate-700/50 hover:border-blue-400/50 flex items-center space-x-2 sm:space-x-3 transform-gpu"
-                      style={{ transform: 'perspective(400px) rotateX(5deg)' }}
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
-                      <span className="text-gray-400 group-hover:text-white font-medium text-sm sm:text-base transition-colors duration-300">
-                        {social.label}
-                      </span>
-                    </button>
-                  ) : (
-                    <a
-                      href={social.href}
-                      className="group p-3 sm:p-4 bg-slate-800/50 rounded-xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-2xl border border-slate-700/50 hover:border-blue-400/50 flex items-center space-x-2 sm:space-x-3 transform-gpu"
-                      style={{ transform: 'perspective(400px) rotateX(5deg)' }}
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
-                      <span className="text-gray-400 group-hover:text-white font-medium text-sm sm:text-base transition-colors duration-300">
-                        {social.label}
-                      </span>
-                    </a>
-                  )}
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group p-3 sm:p-4 bg-slate-800/50 rounded-xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-2xl border border-slate-700/50 hover:border-blue-400/50 flex items-center space-x-2 sm:space-x-3 transform-gpu"
+                    style={{ transform: 'perspective(400px) rotateX(5deg)' }}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                    <span className="text-gray-400 group-hover:text-white font-medium text-sm sm:text-base transition-colors duration-300">
+                      {social.label}
+                    </span>
+                  </a>
                 </div>
               ))}
             </div>
