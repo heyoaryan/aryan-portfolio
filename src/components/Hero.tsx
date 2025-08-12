@@ -190,7 +190,7 @@ const Hero: React.FC = () => {
             <div className="mt-8 sm:mt-10">
               <button
                 onClick={handleServiceClick}
-                className="group bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-2xl flex items-center space-x-2 mx-auto transform-gpu animate-pulse"
+                className="group bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-2xl flex items-center space-x-2 mx-auto transform-gpu"
                 style={{ transform: 'perspective(400px) rotateX(5deg)' }}
               >
                 <Briefcase className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -202,6 +202,13 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
+      {/* Enhanced Scroll Indicator */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
+        <div className="flex flex-col items-center space-y-2">
+          <span className="text-blue-400 text-xs sm:text-sm font-medium">Scroll Down</span>
+          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 animate-pulse" />
+        </div>
+      </div>
     </section>
   );
 };
