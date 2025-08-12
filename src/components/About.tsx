@@ -25,8 +25,8 @@ const About: React.FC = () => {
   const stats = [
     { icon: Calendar, label: 'Years Experience', value: '2+' },
     { icon: Award, label: 'Projects Completed', value: '5' },
-    { icon: Coffee, label: 'Cups of Coffee', value: '1000+' },
-    { icon: Users, label: 'Happy Clients', value: '01' }
+    { icon: Coffee, label: 'Hackathons Participated', value: '6' },
+    { icon: Users, label: 'Hackathon Wins', value: 'Waiting for that moment!' }
   ];
 
   const timeline = [

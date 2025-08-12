@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Github, Linkedin, Briefcase, ArrowDown, Code, Zap, Star, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Briefcase, ArrowDown, Code, Zap, Star } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState('');
@@ -17,35 +17,31 @@ const Hero: React.FC = () => {
   ];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let index = 0;
-    let isDeleting = false;
+    let charIndex = 0;
     const currentText = texts[currentTextIndex];
     
     const interval = setInterval(() => {
-      if (!isDeleting && index < currentText.length) {
-        setText(currentText.slice(0, index + 1));
-        index++;
-      } else if (!isDeleting && index === currentText.length) {
+      if (!isDeleting && charIndex < currentText.length) {
+        setText(currentText.slice(0, charIndex + 1));
+        charIndex++;
+      } else if (!isDeleting && charIndex === currentText.length) {
         setTimeout(() => {
-          isDeleting = true;
-        }, 1500);
-      } else if (isDeleting && index > 0) {
-        setText(currentText.slice(0, index - 1));
-        index--;
-      } else if (isDeleting && index === 0) {
-        isDeleting = false;
+          setIsDeleting(true);
+        }, 2000);
+      } else if (isDeleting && charIndex > 0) {
+        setText(currentText.slice(0, charIndex - 1));
+        charIndex--;
+      } else if (isDeleting && charIndex === 0) {
+        setIsDeleting(false);
         setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-        setIsTyping(false);
-        setTimeout(() => {
-          setIsTyping(true);
-        }, 300);
       }
-    }, isDeleting ? 30 : 80);
+    }, isDeleting ? 50 : 100);
 
     return () => clearInterval(interval);
-  }, [currentTextIndex, texts]);
+  }, [currentTextIndex, texts, isDeleting]);
 
   // Mouse tracking for cursor light effect
   useEffect(() => {
@@ -143,7 +139,7 @@ const Hero: React.FC = () => {
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
                 Aryan Singh Thakur
               </span>
-            </h1>
+              <span className="inline-block w-1 h-8 sm:h-12 bg-blue-500 ml-1 animate-pulse" />
           </div>
 
           {/* Animated Typing Effect */}
@@ -193,7 +189,7 @@ const Hero: React.FC = () => {
             <div className="mt-8 sm:mt-10">
               <button
                 onClick={handleServiceClick}
-                className="group bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-2xl flex items-center space-x-2 mx-auto transform-gpu"
+                className="group bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-2xl flex items-center space-x-2 mx-auto transform-gpu animate-pulse"
                 style={{ transform: 'perspective(400px) rotateX(5deg)' }}
               >
                 <Briefcase className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -205,13 +201,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-        <div className="flex flex-col items-center space-y-2">
-          <span className="text-blue-400 text-xs sm:text-sm font-medium">Scroll Down</span>
-          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 animate-pulse" />
-        </div>
-      </div>
     </section>
   );
 };
