@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Github, Linkedin, Briefcase, ArrowDown, Code, Zap, Star } from 'lucide-react';
+import { Github, Linkedin, Briefcase, ArrowDown, Code, Zap, Star, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState('');
@@ -140,6 +140,7 @@ const Hero: React.FC = () => {
                 Aryan Singh Thakur
               </span>
               <span className="inline-block w-1 h-8 sm:h-12 bg-blue-500 ml-1 animate-pulse" />
+            </h1>
           </div>
 
           {/* Animated Typing Effect */}
