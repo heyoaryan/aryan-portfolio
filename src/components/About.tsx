@@ -102,6 +102,66 @@ const About: React.FC = () => {
           </div>
         </div>
 
+        {/* Achievements Section */}
+        <div className="max-w-4xl mx-auto mb-12 lg:mb-16">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-8 sm:mb-12">My Achievements</h3>
+          <div className="space-y-6">
+            {/* SIH 2024 */}
+            <div className={`bg-slate-900 rounded-xl p-6 hover:bg-slate-800 transition-all duration-500 hover:scale-105 hover:shadow-xl border border-slate-700/50 group ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+              <div className="flex items-start space-x-4">
+                <div className="bg-gradient-to-r from-yellow-500 to-orange-500 p-3 rounded-lg flex-shrink-0">
+                  <Trophy className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <h4 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Smart India Hackathon (SIH) 2024</h4>
+                    <span className="text-yellow-400 font-semibold text-sm">Top 6 Finalist</span>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Selected for finals out of 500+ teams in my problem statement. Reached top 6 in this prestigious national hackathon organized by Government of India.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* SDI 2025 */}
+            <div className={`bg-slate-900 rounded-xl p-6 hover:bg-slate-800 transition-all duration-500 hover:scale-105 hover:shadow-xl border border-slate-700/50 group ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`} style={{ transitionDelay: '200ms' }}>
+              <div className="flex items-start space-x-4">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-3 rounded-lg flex-shrink-0">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <h4 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-300">Student Developer Initiative (SDI) 2025</h4>
+                    <span className="text-blue-400 font-semibold text-sm">Quarter Finalist</span>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Reached quarter finals in this hackathon organized by Delhi State Government in collaboration with GGSIPU.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Industrial Ideathon 2025 */}
+            <div className={`bg-slate-900 rounded-xl p-6 hover:bg-slate-800 transition-all duration-500 hover:scale-105 hover:shadow-xl border border-slate-700/50 group ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
+              <div className="flex items-start space-x-4">
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-3 rounded-lg flex-shrink-0">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <h4 className="text-lg font-bold text-white group-hover:text-green-400 transition-colors duration-300">Industrial Ideathon 2025</h4>
+                    <span className="text-green-400 font-semibold text-sm">1st Runner Up</span>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Secured 2nd position out of 652+ teams with 1500+ registrations. Organized by Government of NCT and Industrial Industry with DSIIDC and NSUT.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Timeline */}
         <div className="max-w-4xl mx-auto">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-8 sm:mb-12">My Journey</h3>
