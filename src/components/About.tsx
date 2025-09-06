@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Calendar, Award, Coffee, Users } from 'lucide-react';
+import { Calendar, Award, Trophy, Target } from 'lucide-react';
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -24,9 +24,9 @@ const About: React.FC = () => {
 
   const stats = [
     { icon: Calendar, label: 'Years Experience', value: '2+' },
-    { icon: Award, label: 'Projects Completed', value: '5' },
-    { icon: Coffee, label: 'Hackathons Participated', value: '6' },
-    { icon: Users, label: 'Hackathon Wins', value: 'Waiting for that moment!' }
+    { icon: Award, label: 'Projects Made', value: '10' },
+    { icon: Trophy, label: 'Hackathons Participated', value: '8' },
+    { icon: Target, label: 'Hackathon Wins', value: '1' }
   ];
 
   const timeline = [

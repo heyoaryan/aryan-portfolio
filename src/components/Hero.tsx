@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Github, Linkedin, Briefcase, ArrowDown, Code, Zap, Star, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Briefcase, ArrowDown, Code, Zap, Star } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState('');
@@ -20,28 +20,35 @@ const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let charIndex = 0;
+    let timeout: NodeJS.Timeout;
     const currentText = texts[currentTextIndex];
     
-    const interval = setInterval(() => {
-      if (!isDeleting && charIndex < currentText.length) {
-        setText(currentText.slice(0, charIndex + 1));
-        charIndex++;
-      } else if (!isDeleting && charIndex === currentText.length) {
-        setTimeout(() => {
+    const typeText = () => {
+      if (!isDeleting) {
+        if (text.length < currentText.length) {
+          setText(currentText.slice(0, text.length + 1));
+          timeout = setTimeout(typeText, 100);
+        } else {
+          timeout = setTimeout(() => {
+            setIsDeleting(true);
+          }, 2000);
+        }
+      } else {
+        if (text.length > 0) {
+          setText(text.slice(0, -1));
+          timeout = setTimeout(typeText, 50);
+        } else {
           setIsDeleting(true);
-        }, 2000);
-      } else if (isDeleting && charIndex > 0) {
-        setText(currentText.slice(0, charIndex - 1));
-        charIndex--;
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+          setIsDeleting(false);
+          setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+        }
       }
-    }, isDeleting ? 50 : 100);
+    };
 
-    return () => clearInterval(interval);
-  }, [currentTextIndex, texts, isDeleting]);
+    timeout = setTimeout(typeText, 100);
+
+    return () => clearTimeout(timeout);
+  }, [currentTextIndex, texts, isDeleting, text]);
 
   // Mouse tracking for cursor light effect
   useEffect(() => {
@@ -202,13 +209,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-        <div className="flex flex-col items-center space-y-2">
-          <span className="text-blue-400 text-xs sm:text-sm font-medium">Scroll Down</span>
-          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 animate-pulse" />
-        </div>
-      </div>
     </section>
   );
 };
